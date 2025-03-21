@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: b179fdbbcce73fa42b1c6b907652a060, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 023808db2bfa00d44929aa2176d29c76, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -458,95 +458,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &852708938
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 909597155}
-    m_Modifications:
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.6851802
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.6851802
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.6851802
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 841
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 185
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2224
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8375989977586001663, guid: 29a28ea8434d3934aaf63b636e323b51,
-        type: 3}
-      propertyPath: m_Name
-      value: VehiculeCartoonSUV
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 29a28ea8434d3934aaf63b636e323b51, type: 3}
---- !u!4 &852708939 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
-    type: 3}
-  m_PrefabInstance: {fileID: 852708938}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &909597154
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,14 +482,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909597154}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -299.51733, y: -181.5474, z: -1290.3285}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.0635318, z: -0, w: 0.9979798}
+  m_LocalPosition: {x: 600.0373, y: -244.48, z: -2350.0151}
+  m_LocalScale: {x: 1.3358, y: 1.3358, z: 1.3358}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 852708939}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -7.285, z: 0}
 --- !u!850595691 &1209024025
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -738,6 +648,89 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1787154215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.83335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.83335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.83335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1416.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 748.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.68939185
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7243886
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -92.836
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598290734750899810, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790381591375940741, guid: 7d69b62376118104190663e567cd829b,
+        type: 3}
+      propertyPath: m_Name
+      value: VehiculeCartoonFormula
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d69b62376118104190663e567cd829b, type: 3}
 --- !u!1 &1898694053
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,3 +880,4 @@ SceneRoots:
   - {fileID: 1495429590}
   - {fileID: 1408267294}
   - {fileID: 909597155}
+  - {fileID: 1787154215}
