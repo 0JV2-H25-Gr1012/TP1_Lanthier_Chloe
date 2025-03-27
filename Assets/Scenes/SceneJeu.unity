@@ -9225,17 +9225,17 @@ PrefabInstance:
     - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.532928
+      value: 9.75
       objectReference: {fileID: 0}
     - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.5329275
+      value: 9.75
       objectReference: {fileID: 0}
     - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.532928
+      value: 9.75
       objectReference: {fileID: 0}
     - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
         type: 3}
@@ -9286,6 +9286,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727833187660753326, guid: 29a28ea8434d3934aaf63b636e323b51,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409912549951425579, guid: 29a28ea8434d3934aaf63b636e323b51,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409912549951425579, guid: 29a28ea8434d3934aaf63b636e323b51,
+        type: 3}
+      propertyPath: motorTorque
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058173865008480834, guid: 29a28ea8434d3934aaf63b636e323b51,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058173865008480834, guid: 29a28ea8434d3934aaf63b636e323b51,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5350238972946689485, guid: 29a28ea8434d3934aaf63b636e323b51,
+        type: 3}
+      propertyPath: m_ForwardFriction.m_ExtremumSlip
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8375989977586001663, guid: 29a28ea8434d3934aaf63b636e323b51,
         type: 3}
