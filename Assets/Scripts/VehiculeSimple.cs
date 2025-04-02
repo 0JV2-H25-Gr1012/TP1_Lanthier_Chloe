@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
-// Code basée sur : https://docs.unity3d.com/2022.3/Documentation/Manual/WheelColliderTutorial.html
-
 public class VehiculeSimple : MonoBehaviour
 {
     private Rigidbody _rb;
@@ -14,17 +12,23 @@ public class VehiculeSimple : MonoBehaviour
 
     public float motorTorque = 2000;
     public float brakeTorque = 2000;
-    public float maxSpeed = 20;
+    public float maxSpeed = 20;  // Original max speed
     public float steeringRange = 30;
     public float steeringRangeAtMaxSpeed = 10;
     public float centreOfGravityOffset = -1f;
+
+    private float originalMaxSpeed; // Stores original speed
+    private bool isSlowedDown = false; // Flag to track if car is slowed
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         wheels = GetComponentsInChildren<WheelControl>();
+
         // Adjust center of mass vertically, to help prevent the car from rolling
         _rb.centerOfMass += Vector3.up * centreOfGravityOffset;
+
+        originalMaxSpeed = maxSpeed; // Store initial max speed
     }
 
     void OnMove(InputValue target)
@@ -46,9 +50,9 @@ public class VehiculeSimple : MonoBehaviour
 
         // Use that to calculate how much torque is available 
         // (zero torque at top speed)
-        float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
+        float currentMotorTorque = Mathf.Lerp(motorTorque * 2f, 0, speedFactor);
 
-        // …and to calculate how much to steer 
+        // â€¦and to calculate how much to steer 
         // (the car steers more gently at top speed)
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
@@ -58,7 +62,6 @@ public class VehiculeSimple : MonoBehaviour
 
         foreach (var wheel in wheels)
         {
-            // Apply steering to Wheel colliders that have "Steerable" enabled
             if (wheel.steerable)
             {
                 wheel.wc.steerAngle = dir.x * currentSteerRange;
@@ -66,7 +69,6 @@ public class VehiculeSimple : MonoBehaviour
 
             if (isAccelerating)
             {
-                // Apply torque to Wheel colliders that have "Motorized" enabled
                 if (wheel.motorized)
                 {
                     wheel.wc.motorTorque = dir.z * currentMotorTorque;
@@ -75,11 +77,35 @@ public class VehiculeSimple : MonoBehaviour
             }
             else
             {
-                // If the user is trying to go in the opposite direction
-                // apply brakes to all wheels
                 wheel.wc.brakeTorque = Mathf.Abs(dir.z) * brakeTorque;
                 wheel.wc.motorTorque = 0;
             }
         }
+
+        // If the car is slowed down, we may also want to limit the acceleration itself
+        if (isSlowedDown)
+        {
+            // Cap the car's acceleration at a slower rate but still allow it to accelerate slowly
+            float currentSpeed = Mathf.Clamp(forwardSpeed, 0, maxSpeed);
+            _rb.velocity = transform.forward * currentSpeed;
+        }
+    }
+
+    // Function to slow down the car
+    public void SlowDown(float percentage, float duration)
+    {
+        isSlowedDown = true;
+        maxSpeed = originalMaxSpeed * percentage; // Reduce speed
+        Debug.Log("Car slowed down to " + maxSpeed);
+
+        Invoke("ResetSpeed", duration); // Restore speed after duration
+    }
+
+    // Function to reset speed
+    private void ResetSpeed()
+    {
+        isSlowedDown = false;
+        maxSpeed = originalMaxSpeed;
+        Debug.Log("Car speed restored to " + maxSpeed);
     }
 }
