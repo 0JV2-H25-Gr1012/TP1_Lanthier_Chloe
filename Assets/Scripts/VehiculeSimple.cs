@@ -10,25 +10,22 @@ public class VehiculeSimple : MonoBehaviour
     private Vector3 dir;
     private WheelControl[] wheels;
 
-    public float motorTorque = 2000;
+    public float motorTorque = 3000;
     public float brakeTorque = 2000;
-    public float maxSpeed = 20;  // Original max speed
+    public float maxSpeed = 20;
     public float steeringRange = 30;
-    public float steeringRangeAtMaxSpeed = 10;
+    public float steeringRangeAtMaxSpeed = 30;
     public float centreOfGravityOffset = -1f;
 
-    private float originalMaxSpeed; // Stores original speed
-    private bool isSlowedDown = false; // Flag to track if car is slowed
+    private float originalMaxSpeed;
+    private bool isSlowedDown = false;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         wheels = GetComponentsInChildren<WheelControl>();
-
-        // Adjust center of mass vertically, to help prevent the car from rolling
-        _rb.centerOfMass += Vector3.up * centreOfGravityOffset;
-
-        originalMaxSpeed = maxSpeed; // Store initial max speed
+        _rb.centerOfMass += Vector3.up * -6f;
+        originalMaxSpeed = maxSpeed;
     }
 
     void OnMove(InputValue target)
@@ -39,32 +36,17 @@ public class VehiculeSimple : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Calculate current speed in relation to the forward direction of the car
-        // (this returns a negative number when traveling backwards)
         float forwardSpeed = Vector3.Dot(transform.forward, _rb.velocity);
-
-
-        // Calculate how close the car is to top speed
-        // as a number from zero to one
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
-
-        // Use that to calculate how much torque is available 
-        // (zero torque at top speed)
-        float currentMotorTorque = Mathf.Lerp(motorTorque * 2f, 0, speedFactor);
-
-        // …and to calculate how much to steer 
-        // (the car steers more gently at top speed)
-        float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
-
-        // Check whether the user input is in the same direction 
-        // as the car's velocity
+        float currentMotorTorque = Mathf.Lerp(motorTorque * 4f, 0, speedFactor);
+        float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, Mathf.Pow(speedFactor, 0.5f));
         bool isAccelerating = Mathf.Sign(dir.z) == Mathf.Sign(forwardSpeed);
 
         foreach (var wheel in wheels)
         {
             if (wheel.steerable)
             {
-                wheel.wc.steerAngle = dir.x * currentSteerRange;
+                wheel.wc.steerAngle = Mathf.Lerp(wheel.wc.steerAngle, dir.x * currentSteerRange, 0.8f);
             }
 
             if (isAccelerating)
@@ -80,28 +62,39 @@ public class VehiculeSimple : MonoBehaviour
                 wheel.wc.brakeTorque = Mathf.Abs(dir.z) * brakeTorque;
                 wheel.wc.motorTorque = 0;
             }
+
+            // Apply light braking when no acceleration input is given
+            if (dir.z == 0)
+            {
+                wheel.wc.brakeTorque = brakeTorque * 0.2f;
+            }
+
+            // Increase forward friction to prevent excessive sliding
+            WheelFrictionCurve forwardFriction = wheel.wc.forwardFriction;
+            forwardFriction.stiffness = 8.0f;  // Increase grip
+            wheel.wc.forwardFriction = forwardFriction;
+
+            // Increase sideways friction to prevent drifting
+            WheelFrictionCurve sidewaysFriction = wheel.wc.sidewaysFriction;
+            sidewaysFriction.stiffness = 8.0f;  // Increase lateral grip
+            wheel.wc.sidewaysFriction = sidewaysFriction;
         }
 
-        // If the car is slowed down, we may also want to limit the acceleration itself
         if (isSlowedDown)
         {
-            // Cap the car's acceleration at a slower rate but still allow it to accelerate slowly
             float currentSpeed = Mathf.Clamp(forwardSpeed, 0, maxSpeed);
             _rb.velocity = transform.forward * currentSpeed;
         }
     }
 
-    // Function to slow down the car
     public void SlowDown(float percentage, float duration)
     {
         isSlowedDown = true;
-        maxSpeed = originalMaxSpeed * percentage; // Reduce speed
+        maxSpeed = originalMaxSpeed * percentage;
         Debug.Log("Car slowed down to " + maxSpeed);
-
-        Invoke("ResetSpeed", duration); // Restore speed after duration
+        Invoke("ResetSpeed", duration);
     }
 
-    // Function to reset speed
     private void ResetSpeed()
     {
         isSlowedDown = false;
