@@ -4426,7 +4426,7 @@ PrefabInstance:
     - target: {fileID: 5125253529391760579, guid: 602bc4d45f6a07949b3f169c884ec23a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 231.8
+      value: 215.8
       objectReference: {fileID: 0}
     - target: {fileID: 5125253529391760579, guid: 602bc4d45f6a07949b3f169c884ec23a,
         type: 3}
@@ -17955,7 +17955,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -10.741064, z: -31.724533, w: -8.390776}
+  m_margin: {x: -62.396446, y: -10.741064, z: -31.724533, w: -8.390776}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -22690,7 +22690,7 @@ Transform:
   m_GameObject: {fileID: 1221526920}
   serializedVersion: 2
   m_LocalRotation: {x: 0.087158166, y: -0.7402585, z: 0.097841434, w: 0.65942997}
-  m_LocalPosition: {x: 0.0009765625, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00048828125, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
